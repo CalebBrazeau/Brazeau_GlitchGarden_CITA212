@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using UnityEngine;
 
@@ -8,10 +9,17 @@ public class DefenderSpawner : MonoBehaviour
     [SerializeField] GameObject Defender;
     private void OnMouseDown()
     {
-        SpawnDefender();
+        SpawnDefender(GetSquareClicked());
     }
-    private void SpawnDefender()
+
+    private Vector2 GetSquareClicked()
     {
-        GameObject newDefender = Instantiate(Defender, transform.position, Quaternion.identity);
+        Vector2 clickPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        Vector2 worldPos = Camera.main.ScreenToWorldPoint(clickPos);
+        return worldPos;
+    }
+    private void SpawnDefender(Vector2 worldPos)
+    {
+        GameObject newDefender = Instantiate(Defender, worldPos, Quaternion.identity) as GameObject;
     }
 }
