@@ -8,6 +8,7 @@ public class Attacker : MonoBehaviour
     [Range(0f, 5f)]
     float currentSpeed = 1f;
     private SpriteRenderer mySpriteRenderer;
+    [SerializeField] float myHealth = 10f;
 
     // Start is called before the first frame update
     void Start()
