@@ -1709,31 +1709,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trophy
       objectReference: {fileID: 0}
-    - target: {fileID: 8246577114072297045, guid: ccfa1b01de50e3444a67c221e6a40486,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246577114072297045, guid: ccfa1b01de50e3444a67c221e6a40486,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246577114072297045, guid: ccfa1b01de50e3444a67c221e6a40486,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246577114072297045, guid: ccfa1b01de50e3444a67c221e6a40486,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246577114072297045, guid: ccfa1b01de50e3444a67c221e6a40486,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccfa1b01de50e3444a67c221e6a40486, type: 3}
 --- !u!114 &8246577114233315967 stripped
