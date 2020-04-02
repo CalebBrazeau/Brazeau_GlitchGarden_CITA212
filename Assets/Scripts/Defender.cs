@@ -12,5 +12,4 @@ public class Defender : MonoBehaviour
         Instantiate(Projectile, TheStrap.transform.position, transform.rotation);
     }
 
-
 }

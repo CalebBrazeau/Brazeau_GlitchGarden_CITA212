@@ -8,7 +8,7 @@ public class StarDisplay : MonoBehaviour
 {
 
     [SerializeField] int stars = 100;
-    Text starText;
+    [SerializeField] Text starText;
 
     void Start()
     {
