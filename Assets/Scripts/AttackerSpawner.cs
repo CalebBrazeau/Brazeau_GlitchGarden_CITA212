@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class AttackerSpawner : MonoBehaviour
 {
-
-    [SerializeField] float minSpawnDelay = 1f;
-    [SerializeField] float maxSpawnDelay = 5f;
+    //spawn delays for attacker spawner
+    [SerializeField] float fltminSpawnDelay = 1f;
+    [SerializeField] float fltmaxSpawnDelay = 5f;
+    // Sets attacker for spawner to spawn
     [SerializeField] Attacker attackerPrefab;
 
-    bool spawn = true;
+    bool boolspawn = true;
 
     IEnumerator Start()
     {
-        while (spawn)
+        while (boolspawn)
         {
-            yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
+            yield return new WaitForSeconds(Random.Range(fltminSpawnDelay, fltmaxSpawnDelay));
             SpawnAttacker();
         }
     }
 
     private void SpawnAttacker()
     {
-        Attacker newAttacker = Instantiate(attackerPrefab, transform.position, transform.rotation) as Attacker;
-        newAttacker.transform.parent = transform;
+        // when called, spawns attacker on spawner
+        Instantiate(attackerPrefab, transform.position, transform.rotation);
     }
 
     // Update is called once per frame

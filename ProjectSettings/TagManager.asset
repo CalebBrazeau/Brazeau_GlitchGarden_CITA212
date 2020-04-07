@@ -53,6 +53,3 @@ TagManager:
   - name: Enemies
     uniqueID: 1143706463
     locked: 0
-  - name: Ships
-    uniqueID: 1930414307
-    locked: 0

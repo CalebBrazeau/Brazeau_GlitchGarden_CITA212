@@ -42,7 +42,7 @@ public class DefenderSpawner : MonoBehaviour
     {
         float newX = Mathf.RoundToInt(rawWorldPos.x);
         float newY = Mathf.RoundToInt(rawWorldPos.y);
-        return new Vector2(newX, newY + 0.15f);
+        return new Vector2(newX, newY);
     }
 
     private void SpawnDefender(Vector2 roundedPos)

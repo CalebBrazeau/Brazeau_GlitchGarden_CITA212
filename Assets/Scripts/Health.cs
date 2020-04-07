@@ -4,32 +4,18 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] float health = 100f;
-    [SerializeField] int WaitBeforeDestroy = 2;
-
-    Animator myAnimator;
-    CapsuleCollider2D myBodyCollider;
-
-    void Start()
-    {
-        myAnimator = GetComponent<Animator>();
-        myBodyCollider = GetComponent<CapsuleCollider2D>();
-    }
+    // amount of health the attacker has
+    [SerializeField] float flthealth = 100f;
 
     public void DamageMeOwO(float damage)
     {
-        health -= damage;
-        if (health <= 0)
+        // subtracts the amount of health defined by the float at start of script
+        flthealth -= damage;
+        // if the health is below zero attacker is destroyed
+        if (flthealth <= 0)
         {
-            StartCoroutine(WaitForDeath());
-            myAnimator.SetBool("Dying", true);
-            myBodyCollider.enabled = !myBodyCollider.enabled;
+            // if the if statement is true this destroys the game object
+            Destroy(gameObject);
         }
-    }
-
-    IEnumerator WaitForDeath()
-    {
-        yield return new WaitForSecondsRealtime(WaitBeforeDestroy);
-        Destroy(gameObject);
     }
 }

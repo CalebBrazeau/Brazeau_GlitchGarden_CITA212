@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelLoad : MonoBehaviour {
-
-    [SerializeField] int timeToWait = 4;
-    int currentSceneIndex;
+    // amount of time to wait before changing scenes
+    [SerializeField] int inttimeToWait = 4;
+    // variable to store current scene number
+    int intcurrentSceneIndex;
 
 	// Use this for initialization
 	void Start () {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (currentSceneIndex == 0)
+        // sets variable to whatever the current scene is
+        intcurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        // if the scene number is equal to 0 it starts the timer before chaning scenes
+        if (intcurrentSceneIndex == 0)
         {
             StartCoroutine(WaitForTime());
         }
@@ -19,13 +22,16 @@ public class LevelLoad : MonoBehaviour {
 
     IEnumerator WaitForTime()
     {
-        yield return new WaitForSeconds(timeToWait);
+        // waits for time set at start of script
+        yield return new WaitForSeconds(inttimeToWait);
+        // calls to load scene method
         LoadNextScene();
     }
 
     public void LoadNextScene()
     {
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        // Adds 1 to the current scene index loading it to next scene
+        SceneManager.LoadScene(intcurrentSceneIndex + 1);
     }
 
 	// Update is called once per frame

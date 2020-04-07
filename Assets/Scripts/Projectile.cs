@@ -5,25 +5,24 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float speed = 1f;
-    [SerializeField] float damage = 20f;
+    // Sets the speed and damage of the projectile
+    [SerializeField] float fltspeed = 1f;
+    [SerializeField] float fltdamage = 20f;
 
     void Update()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        // Sets direction and speed of projectile
+        transform.Translate(Vector2.right * fltspeed * Time.deltaTime);
     }
 
+    // when it enters another collider it triggers the event
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
+        // Gets health component of collidee
         var health = otherCollider.GetComponent<Health>();
-        var attacker = otherCollider.GetComponent<Attacker>();
-
-        if (attacker && health)
-        {
-            health.DamageMeOwO(damage);
-            Destroy(gameObject);
-        }
-        
+        // Damages object hit by variable defined at start of script
+        health.DamageMeOwO(fltdamage);
+        //Destroys projectile so it doesnt pass through and damage multiple attackers
+        Destroy(gameObject);
     }
-    
 }
