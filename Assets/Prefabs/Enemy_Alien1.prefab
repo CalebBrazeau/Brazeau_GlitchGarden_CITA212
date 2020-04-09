@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flthealth: 100
+  intTimeToWait: 1
 --- !u!61 &2461526865024598095
 BoxCollider2D:
   m_ObjectHideFlags: 0

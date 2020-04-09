@@ -20,9 +20,15 @@ public class Projectile : MonoBehaviour
     {
         // Gets health component of collidee
         var health = otherCollider.GetComponent<Health>();
-        // Damages object hit by variable defined at start of script
-        health.DamageMeOwO(fltdamage);
-        //Destroys projectile so it doesnt pass through and damage multiple attackers
-        Destroy(gameObject);
+        // Gets attacker collider
+        var attacker = otherCollider.GetComponent<Attacker>();
+        // When colliding with something it checks if it has both attacker and health component
+        if (attacker && health)
+        {
+            // Damages object hit by variable defined at start of script
+            health.DamageMeOwO(fltdamage);
+            //Destroys projectile so it doesnt pass through and damage multiple attackers
+            Destroy(gameObject);
+        }
     }
 }

@@ -18,7 +18,7 @@ public class Attacker : MonoBehaviour
     {
         // Gets sprite renderer component from object script is attached to
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        // Flips sprite dirrection because the sprite i have is reversed
+        // Flips sprite dirrection because the sprite I have is reversed
         mySpriteRenderer.flipX = true;
     }
 
