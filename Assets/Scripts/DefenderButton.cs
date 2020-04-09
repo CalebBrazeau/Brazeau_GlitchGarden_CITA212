@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class DefenderButton : MonoBehaviour
 {
-    //[SerializeField] Defender1 defenderPrefab;
+    //Finds the defender
+    [SerializeField] Defender1 defenderPrefab;
 
     private void OnMouseDown()
     {
@@ -19,6 +20,8 @@ public class DefenderButton : MonoBehaviour
         }
         // Gets the component for the spriterenderer so it can change its color
         GetComponent<SpriteRenderer>().color = Color.white;
-        //FindObjectOfType<DefenderSpawner>().SetSelectedDefender(defenderPrefab);
+        // Finds which object is selected
+        FindObjectOfType<DefenderSpawner>().SetSelectedDefender(defenderPrefab);
     }
+
 }
