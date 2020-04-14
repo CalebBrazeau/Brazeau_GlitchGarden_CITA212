@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Bullets
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 1143706463
+    locked: 0
+  - name: Ships
+    uniqueID: 1096206859
     locked: 0

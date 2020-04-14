@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StarDisplay : MonoBehaviour
 {
 
-    [SerializeField] int stars = 100;
-    [SerializeField] Text starText;
+    [SerializeField] int intStars = 100;
+    Text starText;
 
     void Start()
     {
@@ -18,29 +19,21 @@ public class StarDisplay : MonoBehaviour
 
     private void UpdateDisplay()
     {
-        starText.text = stars.ToString();
-    }
-
-    public bool HaveEnoughStars(int amount)
-    {
-        return stars >= amount;
+        starText.text = intStars.ToString();
     }
 
     public void AddStars(int amount)
     {
-        stars += amount;
+        intStars += amount;
         UpdateDisplay();
     }
 
     public void SpendStars(int amount)
     {
-
-        if (stars >= amount)
+        if (intStars >= amount)
         {
-            stars -= amount;
+            intStars -= amount;
             UpdateDisplay();
         }
-
     }
-
 }
