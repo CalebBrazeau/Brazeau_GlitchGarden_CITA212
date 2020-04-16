@@ -22,17 +22,17 @@ public class StarDisplay : MonoBehaviour
         starText.text = intStars.ToString();
     }
 
-    public void AddStars(int amount)
+    public void AddStars(int intamount)
     {
-        intStars += amount;
+        intStars += intamount;
         UpdateDisplay();
     }
 
-    public void SpendStars(int amount)
+    public void SpendStars(int intamount)
     {
-        if (intStars >= amount)
+        if (intStars >= intamount)
         {
-            intStars -= amount;
+            intStars -= intamount;
             UpdateDisplay();
         }
     }

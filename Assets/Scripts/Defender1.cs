@@ -11,10 +11,12 @@ public class Defender1 : MonoBehaviour
     {
         return intstarCost;
     }
-
-    public void AddStars(int amount)
-    {
-        FindObjectOfType<StarDisplay>().AddStars(amount);
-    }
     */
+    // Method to add set amount of stars to score
+    public void AddStars(int intamount)
+    {
+        // Finds an object with the StarDisplay script and passes through the amount
+        FindObjectOfType<StarDisplay>().AddStars(intamount);
+    }
+    
 }

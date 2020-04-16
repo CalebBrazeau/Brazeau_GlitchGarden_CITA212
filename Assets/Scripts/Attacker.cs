@@ -32,6 +32,5 @@ public class Attacker : MonoBehaviour
     public void SetMovementSpeed(float speed)
     {
         fltcurrentSpeed = speed;
-
     }
 }
