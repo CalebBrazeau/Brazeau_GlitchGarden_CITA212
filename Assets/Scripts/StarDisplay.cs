@@ -22,6 +22,12 @@ public class StarDisplay : MonoBehaviour
         starText.text = intStars.ToString();
     }
 
+    public bool HaveEnoughStars(int intamount)
+    {
+        // returns if the amount of stars the player currently has is greater than the cost
+        return intStars >= intamount;
+    }
+
     public void AddStars(int intamount)
     {
         intStars += intamount;
