@@ -7,12 +7,15 @@ public class Defender : MonoBehaviour
     // Sets gameobject for projectile and gun
     [SerializeField] GameObject Projectile;
     [SerializeField] GameObject TheStrap;
+    
     AttackerSpawner myLaneSpawner;
-    //Animator myAnimator;
+    //my animator
+    Animator myAnimator;
 
     void Start()
     {
-        //myAnimator = GetComponent<Animator>();
+        // Gets animator component
+        myAnimator = GetComponent<Animator>();
 
         SetLaneSpawner();
 
@@ -22,14 +25,14 @@ public class Defender : MonoBehaviour
         // IF there is an attacker in lane
         if(IsAttackerInLane())
         {
-            print("Shoot Pew Pew");
-
+            // changes animation state
+            myAnimator.SetBool("Attacking", true);
         }
         // If there isnt an attacker in lane
         else
         {
-            print("Just Chill Dude");
-
+            // changes animation state
+            myAnimator.SetBool("Attacking", false);
         }
     }
 
@@ -51,7 +54,7 @@ public class Defender : MonoBehaviour
 
     private bool IsAttackerInLane()
     {
-        if (myLaneSpawner.transform.childCount <= 0)
+        if (myLaneSpawner.transform.childCount == 0)
         {
             return false;
         }
