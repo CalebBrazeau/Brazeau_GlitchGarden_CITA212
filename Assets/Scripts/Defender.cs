@@ -34,6 +34,7 @@ public class Defender : MonoBehaviour
             // changes animation state
             myAnimator.SetBool("Attacking", false);
         }
+        print(myLaneSpawner.transform.childCount);
     }
 
     private void SetLaneSpawner()
@@ -69,6 +70,5 @@ public class Defender : MonoBehaviour
         // Clones projectile to make extra bullets
         Instantiate(Projectile, TheStrap.transform.position, transform.rotation);
     }
-
 
 }
