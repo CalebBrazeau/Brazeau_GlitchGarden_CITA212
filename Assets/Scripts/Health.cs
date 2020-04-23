@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     // amount of health the attacker has
     [SerializeField] float flthealth = 100f;
     // Amount of time before attacker is destroyed
-    [SerializeField] int intTimeToWait = 4;
+    [SerializeField] float fltTimeToWait = 4;
     // Sets Animator to myAnimator
     Animator myAnimator;
 
@@ -36,7 +36,7 @@ public class Health : MonoBehaviour
     IEnumerator WaitForAttackerDeath()
     {
         // Waits for time set at start of script
-        yield return new WaitForSeconds(intTimeToWait);
+        yield return new WaitForSeconds(fltTimeToWait);
         // if the if statement is true this destroys the game object
         Destroy(gameObject);
     }

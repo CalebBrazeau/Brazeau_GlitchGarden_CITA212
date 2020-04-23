@@ -284,4 +284,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flthealth: 150
-  intTimeToWait: 4
+  fltTimeToWait: 0
