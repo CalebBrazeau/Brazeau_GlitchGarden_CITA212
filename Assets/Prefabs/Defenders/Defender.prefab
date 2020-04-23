@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3471882587190913841}
   - component: {fileID: 629626194}
   - component: {fileID: 993687059}
+  - component: {fileID: 409702706}
   m_Layer: 0
   m_Name: Defender
   m_TagString: Untagged
@@ -72,6 +73,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0370314, y: 1.0555469}
   m_EdgeRadius: 0
+--- !u!114 &409702706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603208213093982322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ae005c81b05064db35fbac585a19e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flthealth: 100
+  intTimeToWait: 4
 --- !u!1 &2044506687807150281
 GameObject:
   m_ObjectHideFlags: 0
