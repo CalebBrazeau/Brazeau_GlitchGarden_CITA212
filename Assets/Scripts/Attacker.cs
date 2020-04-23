@@ -10,8 +10,8 @@ public class Attacker : MonoBehaviour
     float fltcurrentSpeed = 1f;
     // finds the sprite renderer of the object
     private SpriteRenderer mySpriteRenderer;
-    // Sets value for attacker health
-    [SerializeField] float fltmyHealth = 10f;
+    // Current target
+    GameObject currentTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -33,4 +33,14 @@ public class Attacker : MonoBehaviour
     {
         fltcurrentSpeed = speed;
     }
+
+    public void Attack(GameObject target)
+    {
+        //Gets animator component
+        GetComponent<Animator>().SetBool("Attacking", true);
+        // sets current target to target
+        currentTarget = target;
+    }
+
+
 }
