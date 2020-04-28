@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class AttackerSpawner : MonoBehaviour
     [SerializeField] float fltminSpawnDelay = 1f;
     [SerializeField] float fltmaxSpawnDelay = 5f;
     // Sets attacker for spawner to spawn
-    [SerializeField] Attacker attackerPrefab;
+    [SerializeField] Attacker[] attackerPrefabArray;
 
     bool boolspawn = true;
 
@@ -23,15 +24,17 @@ public class AttackerSpawner : MonoBehaviour
 
     private void SpawnAttacker()
     {
-        // when called, spawns attacker on spawner
-        Attacker newAttacker = Instantiate(attackerPrefab, transform.position, transform.rotation) as Attacker;
-        // Instantiates on parent
-        newAttacker.transform.parent = transform;
+        // sets range for attacker prefab array
+        var attackerIndex = Random.Range(0, attackerPrefabArray.Length);
+        // tells "Spawn" method what attacker pref
+        Spawn(attackerPrefabArray[attackerIndex]);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Spawn(Attacker myAttacker)
     {
-
+        // when called, spawns attacker on spawner
+        Attacker newAttacker = Instantiate(myAttacker, transform.position, transform.rotation) as Attacker;
+        // Instantiates on parent
+        newAttacker.transform.parent = transform;
     }
 }

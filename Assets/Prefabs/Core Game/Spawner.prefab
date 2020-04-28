@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8209904624600980968}
-  - component: {fileID: 405677787}
+  - component: {fileID: 871695104661191112}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &405677787
+--- !u!114 &871695104661191112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eceb7d6714ddbe4dbb256dc61a62c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnDelay: 1
-  maxSpawnDelay: 10
-  attackerPrefab: {fileID: 5766532370988823247, guid: ea8acdbb7b1d15b4882fe428511225b5,
-    type: 3}
+  fltminSpawnDelay: 1
+  fltmaxSpawnDelay: 5
+  attackerPrefabArray:
+  - {fileID: 6988921791215006024, guid: e589cf21c51928342b9e072ed28e6a56, type: 3}
+  - {fileID: 5766532370988823247, guid: ea8acdbb7b1d15b4882fe428511225b5, type: 3}

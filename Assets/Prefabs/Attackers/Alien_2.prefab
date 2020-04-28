@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5525683306242656949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.069, z: 0}
+  m_LocalPosition: {x: 0, y: 0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6988921791215006023}
@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3529544427710718613}
   - component: {fileID: 1356265532202959816}
   - component: {fileID: 8749486614315560698}
+  - component: {fileID: 1007041225}
   m_Layer: 0
   m_Name: Alien_2
   m_TagString: Untagged
@@ -197,7 +198,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07510173, y: 0.15617886}
+  m_Offset: {x: -0.01716423, y: 0.2765104}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -208,7 +209,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.61481357, y: 0.9662841}
+  m_Size: {x: 0.6058998, y: 0.72562104}
   m_EdgeRadius: 0
 --- !u!212 &8749486614315560698
 SpriteRenderer:
@@ -260,3 +261,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1007041225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6988921791215006020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db45c4401df770d4bb000a6bd28d800c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
