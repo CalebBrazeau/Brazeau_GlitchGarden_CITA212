@@ -28,6 +28,20 @@ public class LevelLoad : MonoBehaviour {
         LoadNextScene();
     }
 
+    public void RestartScene()
+    {
+        // Adds 1 to the current scene index loading it to next scene
+        SceneManager.LoadScene(intcurrentSceneIndex);
+        Time.timeScale = 1;
+    }
+
+    public void LoadMainMenu()
+    {
+        // Adds 1 to the current scene index loading it to next scene
+        SceneManager.LoadScene("Start Screen");
+        Time.timeScale = 1;
+    }
+
     public void LoadNextScene()
     {
         // Adds 1 to the current scene index loading it to next scene
@@ -38,6 +52,11 @@ public class LevelLoad : MonoBehaviour {
     {
         // Loads Specified scene
         SceneManager.LoadScene("Lose Screen");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 	// Update is called once per frame

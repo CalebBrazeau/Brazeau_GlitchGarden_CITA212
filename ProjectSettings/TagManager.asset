@@ -56,3 +56,6 @@ TagManager:
   - name: Ships
     uniqueID: 1096206859
     locked: 0
+  - name: Lose Screen
+    uniqueID: 360589697
+    locked: 0

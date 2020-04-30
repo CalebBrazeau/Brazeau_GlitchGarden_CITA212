@@ -7,6 +7,7 @@ public class LevelController : MonoBehaviour
 {
     // Level Complete canvas
     [SerializeField] GameObject winLabel;
+    [SerializeField] GameObject loseLabel;
     // sets number of attackers variable to 0
     int intNumberOfAttackers = 0;
     // Time to wait
@@ -18,6 +19,7 @@ public class LevelController : MonoBehaviour
     {
         // Turns the winLabel off
         winLabel.SetActive(false);
+        loseLabel.SetActive(false);
     }
 
     public void AttackerSpawned()
@@ -48,6 +50,12 @@ public class LevelController : MonoBehaviour
         yield return new WaitForSeconds(fltWaitToLoad);
         // Loads next scene 
         FindObjectOfType<LevelLoad>().LoadNextScene();
+    }
+
+    public void HandleLoseCondition()
+    {
+        loseLabel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void LevelTimerFinished()
