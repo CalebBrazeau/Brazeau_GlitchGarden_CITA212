@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcc337176a2ea94b8ef5d0e3781c444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 5276702284304884744, guid: 2091a748c411fe94589b7fb49cd505b5,
+  projectile: {fileID: 5276702284304884744, guid: 2091a748c411fe94589b7fb49cd505b5,
     type: 3}
-  TheStrap: {fileID: 1740022146741136982}
+  gun: {fileID: 1740022146741136982}
 --- !u!114 &1740022145683361794
 MonoBehaviour:
   m_ObjectHideFlags: 0

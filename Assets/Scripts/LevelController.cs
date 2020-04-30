@@ -1,13 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
+    // Level Complete canvas
+    [SerializeField] GameObject winLabel;
     // sets number of attackers variable to 0
     int intNumberOfAttackers = 0;
+    // Time to wait
+    [SerializeField] float fltWaitToLoad = 5f;
     // Sets bool to false
     bool boolLevelTimerFinished = false;
+
+    void Start()
+    {
+        // Turns the winLabel off
+        winLabel.SetActive(false);
+    }
 
     public void AttackerSpawned()
     {
@@ -22,9 +33,21 @@ public class LevelController : MonoBehaviour
         // if the number of attackers is less than or equal to 0 and the level timer is finished
         if (intNumberOfAttackers <= 0 && boolLevelTimerFinished)
         {
-            // prints this to console
-            print("End Level Now");
+           
+            StartCoroutine(HandleWinCondition());
         }
+    }
+
+    IEnumerator HandleWinCondition()
+    {
+        // Turns the winLabel on 
+        winLabel.SetActive(true);
+        // Gets audio source component and plays audio source
+        GetComponent<AudioSource>().Play();
+        // Waits set time
+        yield return new WaitForSeconds(fltWaitToLoad);
+        // Loads next scene 
+        FindObjectOfType<LevelLoad>().LoadNextScene();
     }
 
     public void LevelTimerFinished()
@@ -47,9 +70,5 @@ public class LevelController : MonoBehaviour
 
     }
 
-    void Start()
-    {
-        
-    }
 
 }
