@@ -13,7 +13,19 @@ public class Attacker : MonoBehaviour
     // Current target
     GameObject currentTarget;
 
-    // Start is called before the first frame update
+
+    // On script awake (Or when the script is created)
+    private void Awake()
+    {
+        FindObjectOfType<LevelController>().AttackerSpawned();
+
+    }
+
+    private void OnDestroy()
+    {
+        FindObjectOfType<LevelController>().AttackerKilled();
+    }
+
     void Start()
     {
         // Gets sprite renderer component from object script is attached to

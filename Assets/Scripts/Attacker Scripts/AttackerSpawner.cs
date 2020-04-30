@@ -11,6 +11,7 @@ public class AttackerSpawner : MonoBehaviour
     // Sets attacker for spawner to spawn
     [SerializeField] Attacker[] attackerPrefabArray;
 
+    // bool for whether or not attackers should spawn
     bool boolspawn = true;
 
     IEnumerator Start()
@@ -20,6 +21,12 @@ public class AttackerSpawner : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(fltminSpawnDelay, fltmaxSpawnDelay));
             SpawnAttacker();
         }
+    }
+
+    public void StopSpawning()
+    {
+        // sets spawning to false
+        boolspawn = false;
     }
 
     private void SpawnAttacker()

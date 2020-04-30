@@ -9,10 +9,16 @@ public class GameTimer : MonoBehaviour
     [Tooltip("Amount of Level Time in Seconds")]
     // Amount of level Time
     [SerializeField] float fltLevelTime = 10f;
+    bool boolTriggeredLevelFinished = false;
 
     // Update is called once per frame
     void Update()
     {
+        if (boolTriggeredLevelFinished)
+        {
+            return;
+        }
+
         // sets slider value to the amount of time the level has been loaded divided by amount of level time
         GetComponent<Slider>().value = Time.timeSinceLevelLoad / fltLevelTime;
 
@@ -21,8 +27,10 @@ public class GameTimer : MonoBehaviour
         // if the bool is true
         if (boolTimerFinished)
         {
-            // (temp) prints this to see if timer ever finishes
-            print("Level Timer Expired");
+            // Finds LevelController scripts and accesses the LevelTimerFinished method
+            FindObjectOfType<LevelController>().LevelTimerFinished();
+            // sets level finished to true
+            boolTriggeredLevelFinished = true;
         }
     }
 }

@@ -1,74 +1,73 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Defender : MonoBehaviour
 {
-    // Sets gameobject for projectile and gun
-    [SerializeField] GameObject Projectile;
-    [SerializeField] GameObject TheStrap;
-    
+    [SerializeField] GameObject projectile, gun;
     AttackerSpawner myLaneSpawner;
-    //my animator
-    Animator myAnimator;
+    Animator animator;
 
-    void Start()
+    private void Start()
     {
-        // Gets animator component
-        myAnimator = GetComponent<Animator>();
-
         SetLaneSpawner();
+        animator = GetComponent<Animator>();
 
-    }
-    void Update()
+    } // Start() 
+
+
+    private void Update()
     {
-        // IF there is an attacker in lane
-        if(IsAttackerInLane())
+        if (IsAttackerInLane())
         {
-            // changes animation state
-            myAnimator.SetBool("Attacking", true);
+            // change animation state to shooting
+            animator.SetBool("isAttacking", true);
         }
-        // If there isnt an attacker in lane
         else
         {
-            // changes animation state
-            myAnimator.SetBool("Attacking", false);
+            // change animation state to idle
+            animator.SetBool("isAttacking", false);
+
         }
-        print(myLaneSpawner.transform.childCount);
-    }
+
+    } // Update()
 
     private void SetLaneSpawner()
     {
-        AttackerSpawner[] spawners = FindObjectsOfType<AttackerSpawner>();
-        // for each attacker in spawner
-        foreach(AttackerSpawner spawner in spawners)
+        // array to store the AttackerSpawners
+        AttackerSpawner[] attackerSpawners = FindObjectsOfType<AttackerSpawner>();
+
+        foreach (AttackerSpawner spawner in attackerSpawners)
         {
-            // if the spawner position and the defender postition = 0ish 
-            bool boolIsCloseEnough = (Mathf.Abs(spawner.transform.position.y - transform.position.y) <= Mathf.Epsilon);
-            // if the bool is true
+            // is an attacker in my lane
+            bool boolIsCloseEnough =
+                // use the absolute value of the difference
+                (Mathf.Abs(spawner.transform.position.y - transform.position.y)
+                <= Mathf.Epsilon);
             if (boolIsCloseEnough)
             {
                 myLaneSpawner = spawner;
             }
-        }
-    }
+        } // foreach
+
+    } // SetLaneSpawner()
 
     private bool IsAttackerInLane()
     {
-        if (myLaneSpawner.transform.childCount == 0)
+        if (myLaneSpawner.transform.childCount <= 0)
         {
-            return false;
+            return false; // no attacker in our lane
         }
         else
         {
-            return true;
+            return true; // there is an attacker in our lane
         }
-    }
+    } // IsAttackerInLane()
 
     public void Fire()
     {
-        // Clones projectile to make extra bullets
-        Instantiate(Projectile, TheStrap.transform.position, transform.rotation);
-    }
-
+        // create a projectile and move it based on the position of the gun 
+        Instantiate(projectile, gun.transform.position, transform.rotation);
+    } // Fire()
 }
