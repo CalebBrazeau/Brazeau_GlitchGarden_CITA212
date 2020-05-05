@@ -914,7 +914,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelController
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4459041356694333255, guid: 10d3de16b72a2c24b8931a8559108a45, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 10d3de16b72a2c24b8931a8559108a45, type: 3}
 --- !u!114 &1624976299 stripped
 MonoBehaviour:
