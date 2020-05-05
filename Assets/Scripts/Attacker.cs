@@ -17,8 +17,12 @@ public class Attacker : MonoBehaviour
 
     private void OnDestroy()
     {
-        // when an Attacker is killed
-        FindObjectOfType<LevelController>().AttackerKilled();
+        LevelController levelController = FindObjectOfType<LevelController>();
+        // if there is no null reference this runs
+        if (levelController != null)
+        {
+            levelController.AttackerKilled();
+        }
 
     } // OnDestroy()
 
