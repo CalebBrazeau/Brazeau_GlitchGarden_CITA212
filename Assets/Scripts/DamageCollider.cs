@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class DamageCollider : MonoBehaviour
 {
-    public void OnTriggerEnter2D()
+    private void OnTriggerEnter2D()
     {
-        // finds livesdisplay component and accesses TakeLife method
+        // decrease our lives because an attacker has hit
+        // our DamageCollider
         FindObjectOfType<LivesDisplay>().TakeLife();
     }
-}
+
+} // class DamageCollider

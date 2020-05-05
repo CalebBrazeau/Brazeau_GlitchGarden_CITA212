@@ -5,36 +5,36 @@ using UnityEngine.UI;
 
 public class LivesDisplay : MonoBehaviour
 {
-    // Sets amount of player lives
-    [SerializeField] int intLives = 3;
+    [SerializeField] int intLives = 5;
+    Text txtLives;
     [SerializeField] int intDamage = 1;
-    Text txtLivesText;
 
     void Start()
     {
-        // Gets Lives Text Component
-        txtLivesText = GetComponent<Text>();
-        // Calls to update display
+        // to access the text component within the text field
+        txtLives = GetComponent<Text>();
         UpdateDisplay();
-    }
+
+    } // Start()
 
     private void UpdateDisplay()
     {
-        // Converts lives integer variable to ToString
-        txtLivesText.text = intLives.ToString();
-    }
+        // convert the integer star field to a string
+        txtLives.text = intLives.ToString();
+
+    } // UpdateDisplay()
 
     public void TakeLife()
     {
-        // amount of lives to take away
+        // decrease our lives by one
         intLives -= intDamage;
         UpdateDisplay();
-
         if (intLives <= 0)
         {
-            // Loads lose condition
+            // no lives remaining, go to LoseScreen
             FindObjectOfType<LevelController>().HandleLoseCondition();
         }
-    }
 
-}
+    } // SpendStars()
+
+} // class Lives

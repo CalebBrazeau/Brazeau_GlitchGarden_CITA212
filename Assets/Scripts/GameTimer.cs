@@ -5,32 +5,26 @@ using UnityEngine.UI;
 
 public class GameTimer : MonoBehaviour
 {
-    // ToolTip
-    [Tooltip("Amount of Level Time in Seconds")]
-    // Amount of level Time
-    [SerializeField] float fltLevelTime = 10f;
+    // add a tooltip to our level timer
+    [Tooltip("Level Timer in SECONDS")]
+    [SerializeField] float fltLevelTime = 10;
     bool boolTriggeredLevelFinished = false;
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (boolTriggeredLevelFinished)
         {
             return;
         }
-
-        // sets slider value to the amount of time the level has been loaded divided by amount of level time
+        // track time on our slider
         GetComponent<Slider>().value = Time.timeSinceLevelLoad / fltLevelTime;
 
-        // bool for if the timer is finished or not
         bool boolTimerFinished = (Time.timeSinceLevelLoad >= fltLevelTime);
-        // if the bool is true
         if (boolTimerFinished)
         {
-            // Finds LevelController scripts and accesses the LevelTimerFinished method
             FindObjectOfType<LevelController>().LevelTimerFinished();
-            // sets level finished to true
             boolTriggeredLevelFinished = true;
         }
     }
-}
+} // class GameTimer

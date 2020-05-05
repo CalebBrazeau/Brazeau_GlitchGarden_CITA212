@@ -1,43 +1,33 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    // amount of health the attacker has
-    [SerializeField] float flthealth = 100f;
-    // Amount of time before attacker is destroyed
-    [SerializeField] float fltTimeToWait = 4;
-    // Sets Animator to myAnimator
-    Animator myAnimator;
+    [SerializeField] float fltHealth = 100f; // health of attacker
+    [SerializeField] GameObject GOdeathVFX; // particle effects for death of an attacker
 
-
-    void Start()
+    public void DealDamage(float fltDamage)
     {
-        // Gets gameobjects Animator
-        myAnimator = GetComponent<Animator>();
-    }
-    public void DamageMeOwO(float damage)
-    {
-        // subtracts the amount of health defined by the float at start of script
-        flthealth -= damage;
-        // if the health is below zero attacker is destroyed
-        if (flthealth <= 0)
+        fltHealth -= fltDamage; // increase damage to attacker
+        if (fltHealth <= 0)
         {
-            // Disables attacker collider so projectiles can pass through it
-            GetComponent<BoxCollider2D>().enabled = false;
-            // Sets attacker animation to dying animation
-            myAnimator.SetBool("Dying", true);
-            // Starts timer so death animation can run completely
-            StartCoroutine(WaitForAttackerDeath());
-        }
-    }
+            
+            TriggerDeathVFX();
+            Destroy(gameObject); // attacker
+        } // if
+    } // DealDamage()
 
-    IEnumerator WaitForAttackerDeath()
+    private void TriggerDeathVFX()
     {
-        // Waits for time set at start of script
-        yield return new WaitForSeconds(fltTimeToWait);
-        // if the if statement is true this destroys the game object
-        Destroy(gameObject);
-    }
-}
+        if (!GOdeathVFX)
+        {
+            return;
+        } // if
+        // create a particle effect when an attacker dies
+        GameObject GOdeathVFXObject = Instantiate(GOdeathVFX, transform.position, transform.rotation);
+        Destroy(GOdeathVFXObject, 1f); // destroy particle effect
+    } // TriggerDeathVFX()
+
+} // class Health

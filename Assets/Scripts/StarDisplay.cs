@@ -1,45 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class StarDisplay : MonoBehaviour
 {
-
+    // initial number of stars for the game
     [SerializeField] int intStars = 100;
-    Text starText;
+    // the text for the star text field
+    Text txtStarText;
 
     void Start()
     {
-        starText = GetComponent<Text>();
+        // to access the text component within the text field
+        txtStarText = GetComponent<Text>();
         UpdateDisplay();
-    }
+
+    } // Start()
 
     private void UpdateDisplay()
     {
-        starText.text = intStars.ToString();
+        // convert the integer star field to a string
+        txtStarText.text = intStars.ToString();
+        
+    } // UpdateDisplay()
+
+    public bool HaveEnoughStars(int amount)
+    {
+        return intStars >= amount;
     }
 
-    public bool HaveEnoughStars(int intamount)
+    public void AddStars(int amount)
     {
-        // returns if the amount of stars the player currently has is greater than the cost
-        return intStars >= intamount;
-    }
-
-    public void AddStars(int intamount)
-    {
-        intStars += intamount;
+        // increase our number of stars
+        intStars += amount;
         UpdateDisplay();
-    }
 
-    public void SpendStars(int intamount)
+    } // AddStars()
+
+    public void SpendStars(int amount)
     {
-        if (intStars >= intamount)
+        // only decrease if there is something available to decrease
+        if (intStars >= amount)
         {
-            intStars -= intamount;
+            // decrease our number of stars
+            intStars -= amount;
             UpdateDisplay();
-        }
-    }
-}
+        } // if
+        
+    } // SpendStars()
+
+} // class StarDisplay

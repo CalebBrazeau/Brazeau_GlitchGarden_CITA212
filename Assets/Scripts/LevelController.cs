@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
@@ -35,7 +34,7 @@ public class LevelController : MonoBehaviour
         // if the number of attackers is less than or equal to 0 and the level timer is finished
         if (intNumberOfAttackers <= 0 && boolLevelTimerFinished)
         {
-           
+
             StartCoroutine(HandleWinCondition());
         }
     }
@@ -49,7 +48,7 @@ public class LevelController : MonoBehaviour
         // Waits set time
         yield return new WaitForSeconds(fltWaitToLoad);
         // Loads next scene 
-        FindObjectOfType<LevelLoad>().LoadNextScene();
+        FindObjectOfType<LevelLoader>().LoadNextScene();
     }
 
     public void HandleLoseCondition()
@@ -66,7 +65,7 @@ public class LevelController : MonoBehaviour
 
     private void StopSpawners()
     {
-        
+
         // makes an array for each spawner in the scene
         AttackerSpawner[] spawnerArray = FindObjectsOfType<AttackerSpawner>();
         // for every spawner in the array
@@ -78,5 +77,4 @@ public class LevelController : MonoBehaviour
 
     }
 
-
-}
+} // class LevelController

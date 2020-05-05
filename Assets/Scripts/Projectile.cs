@@ -1,35 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // Sets the speed and damage of the projectile
-    [SerializeField] float fltspeed = 1f;
-    [SerializeField] float fltdamage = 20f;
-
+    [SerializeField] float fltSpeed = 1f; // speed of weapon
+    [SerializeField] float fltDamage = 50f; // amount of damage to attacker
+    
     void Update()
     {
-        // Sets direction and speed of projectile
-        transform.Translate(Vector2.right * fltspeed * Time.deltaTime);
-    }
+        // move the weapon towards the attacker
+        transform.Translate(Vector2.right * fltSpeed * Time.deltaTime);
+    } // Update()
 
-    // when it enters another collider it triggers the event
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        // Gets health component of collidee
+        // deal damage to attacker
         var health = otherCollider.GetComponent<Health>();
-        // Gets attacker collider
-        var attacker = otherCollider.GetComponent<Attacker>();
-        // When colliding with something it checks if it has both attacker and health component
+        var attacker = otherCollider.GetComponent<Attacker>(); // reference the attacker
+        // if there are both health and attacker components...
         if (attacker && health)
         {
-            // Damages object hit by variable defined at start of script
-            health.DamageMeOwO(fltdamage);
-            //Destroys projectile so it doesnt pass through and damage multiple attackers
-            Destroy(gameObject);
-        }
-    }
+            health.DealDamage(fltDamage); // damage the attacker
+            Destroy(gameObject); // destroy the projectile
+        } // if
+        
+    } // OnTriggerEnter2D() 
 
-}
+} // class Projectile
