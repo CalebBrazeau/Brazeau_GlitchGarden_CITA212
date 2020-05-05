@@ -59,6 +59,13 @@ public class LevelLoader : MonoBehaviour {
         SceneManager.LoadScene(intcurrentSceneIndex + 1);
     }
 
+    public void LoadOptionsScene()
+    {
+        // Loads Specified Scene
+        SceneManager.LoadScene("Options Screen");
+    }
+
+
     public void LoadYouLoseScene()
     {
         // Loads Specified scene
