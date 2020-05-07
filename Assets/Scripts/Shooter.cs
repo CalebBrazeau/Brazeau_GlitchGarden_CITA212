@@ -8,13 +8,31 @@ public class Shooter : MonoBehaviour
     AttackerSpawner myLaneSpawner;
     Animator animator;
 
+    // parent of all projectiles
+    GameObject projectileParent;
+
+    // Constant for name of projectile parent
+    const string PROJECTILE_PARENT_NAME = "Projectile";
+
     private void Start()
     {
         SetLaneSpawner();
         animator = GetComponent<Animator>();
+
+        CreateProjectileParent();
     
     } // Start() 
 
+    private void CreateProjectileParent()
+    {
+        // sets the parent to the projectiles found in parent name
+        projectileParent = GameObject.Find(PROJECTILE_PARENT_NAME);
+        // if there is no parent it creates one
+        if (!projectileParent)
+        {
+            projectileParent = new GameObject(PROJECTILE_PARENT_NAME);
+        }
+    }
 
     private void Update()
     {
@@ -67,6 +85,8 @@ public class Shooter : MonoBehaviour
     public void Fire()
     {
         // create a projectile and move it based on the position of the gun 
-        Instantiate(projectile, gun.transform.position, transform.rotation);
+        GameObject newProjectile = Instantiate(projectile, gun.transform.position, transform.rotation) as GameObject;
+
+        newProjectile.transform.parent = projectileParent.transform;
     } // Fire()
 } // class Shooter()
