@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9778bfceee1a9342be37fa3d9895aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fltHealth: 200
+  fltHealth: 75
   GOdeathVFX: {fileID: 1906222994913036, guid: 740c2b3187d56c341b8cb78e8aa925c5, type: 3}
 --- !u!114 &6830937527220578737
 MonoBehaviour:

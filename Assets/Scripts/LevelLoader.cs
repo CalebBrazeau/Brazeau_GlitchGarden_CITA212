@@ -78,6 +78,11 @@ public class LevelLoader : MonoBehaviour {
         Application.Quit();
     }
 
+    public void LoadLevelOne()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
+
     public void OpenControlsMenu()
     {
         // Opens Control Menu
