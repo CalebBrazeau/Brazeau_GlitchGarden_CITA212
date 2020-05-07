@@ -11,7 +11,7 @@ public class DamageCollider : MonoBehaviour
         FindObjectOfType<LivesDisplay>().TakeLife();
 
         // Destroys enemies that hit damage collider
-        Destory(otherCollider.gameObject);
+        Destroy(otherCollider.gameObject);
     }
 
 } // class DamageCollider
