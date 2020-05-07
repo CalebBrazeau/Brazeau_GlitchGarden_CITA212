@@ -1270,6 +1270,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 274608269}
+    - target: {fileID: 835093117, guid: 99cca0ad008d181469431964f7255d1d, type: 3}
+      propertyPath: intStars
+      value: 99999
+      objectReference: {fileID: 0}
     - target: {fileID: 1334004285, guid: 99cca0ad008d181469431964f7255d1d, type: 3}
       propertyPath: fltLevelTime
       value: 60
